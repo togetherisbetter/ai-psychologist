@@ -39,6 +39,9 @@
       }
       body {
         font-family: 'Lato', sans-serif !important;
+        width: 100%;
+        margin: 0;
+        padding: 0;
       }
       .container {
         padding-top: 15vh;
@@ -87,9 +90,9 @@
       /* https://stackoverflow.com/questions/35814653/automatic-height-when-embedding-a-youtube-video */
       .video-container {
         position: relative;
-        padding-bottom: 63%;
+        padding-bottom: 61%;
         height: 0;
-        margin: 5em 0;
+        margin: 5em 0 0 0;
       }
       .video-container iframe {
         position: absolute;
@@ -106,13 +109,20 @@
       
       /* mobile width queries*/
       @media screen and (max-width: 640px) { 
+        .container {
+          padding-top: 10vh;
+          padding-bottom: 10vh;
+        }
+        .video-container {
+          margin: 3em 0 0em;
+        }
         h1 {
-          font-size: 3.8rem;
-          line-height: 4.8rem;
+          font-size: 2.2rem;
+          line-height: 2.8rem;
         }
         h2 {
-          font-size: 2rem;
-          line-height: 2.95rem;
+          font-size: 1.8rem;
+          line-height: 2.5rem;
         }
         p, a { 
           font-size: 1.125rem;
@@ -128,7 +138,7 @@
         <div class="col col-lg-6 offset-lg-3 col-sm-10 offset-sm-1 col-md-10 offset-md-1 col-10 offset-1">
           <h1>ИИ&nbsp;психотерапия</h1>
 
-          <p class="benefit">На основе чат-бота в Телеграм, супервизируемого профессиональными психотерапевтами</p>
+          <p class="benefit">Телеграм чат-бот, управляемый искусственным интеллектом и супервизируемый профессиональными психотерапевтами для ведения длительной индивидуальной психотерапии</p>
 
           <a type="button" class="btn btn-primary btn-lg" href="https://forms.gle/LeEpwEL9cgcHbx477" target="_blank">Попробовать</a> 
         </div>
@@ -139,9 +149,19 @@
               <source src="https://www.dropbox.com/scl/fi/bxbcfzxn4n7btqoqfy52b/3-min-therapy-ru.mp4?rlkey=8wtu22f0hedr8tt89bd18vxei&raw=1" type="video/mp4" />
             </video>
           </div>
+          <p style="font-size-: 1em; color: darkgray; margin-bottom: 3em;">На данном видео показано, как ИИ психотерапевт начинает, ведет и заканчивает короткую 3-минутную демонстрационную сессию, в процессе которой его провоцируют дать жизненный совет.</p>
         </div>
 
-        <div id="col col-lg-6 offset-lg-3 col-sm-10 offset-sm-1 col-md-10 offset-md-1 col-10 offset-1">
+        <div class="col col-lg-6 offset-lg-3 col-sm-10 offset-sm-1 col-md-10 offset-md-1 col-10 offset-1">
+          <h2>О супервизии</h2>
+          <p style="margin: 1em 0 2em 0;">Сегодня многие люди пытаются использовать генеративный ИИ на базе чатов (например, ChatGPT) для разговорной психотерапии. Но, из-за того, что такие чаты работают на моделях общего назначения, а не на моделях, натренированных для оказания квалифицированной психотерапевтической помощи, то использование этих чатов для психотерапии способно нанести вред, а не помочь.</p>
+          <img style="width: 100%; max-width: 400px;" src="https://www.dropbox.com/scl/fi/bx7gojg0bu2b8pxosdjs1/trends-2025.jpg?rlkey=zfqhpfdkbu5ulsj7ccnwyznl3&raw=1">
+          <p style="margin: 2em 0 2em 0;">Поэтому, мы создаем чат-бота, специально тренируемого на ведение квалифицированных психотерапевтических сессий, и которого регулярно супервизируют профессиональные психотерапевты.</p>
+
+          <a type="button" class="btn btn-primary btn-lg" href="https://forms.gle/LeEpwEL9cgcHbx477" target="_blank">Попробовать</a> 
+        </div>
+        
+        <div style="margin-top: 4em;" class="col col-lg-6 offset-lg-3 col-sm-10 offset-sm-1 col-md-10 offset-md-1 col-10 offset-1">
           <h2>Обратная связь</h2>
            <a href="mailto:alexeyhimself@gmail.com">alexeyhimself@gmail.com</a>
         </div>
