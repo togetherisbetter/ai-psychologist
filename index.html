@@ -88,9 +88,9 @@
       }
 
       /* https://stackoverflow.com/questions/35814653/automatic-height-when-embedding-a-youtube-video */
-      .video-container {
+      /*.video-container {
         position: relative;
-        padding-bottom: 61%;
+        padding-bottom: 1%;
         height: 0;
         margin: 5em 0 0 0;
       }
@@ -101,12 +101,15 @@
         width: 100%;
         height: 100%;
         border-radius: 10px;
-      }
+      }*/
       .btn {
         margin-right: 10px;
         margin-bottom: 10px;
       }
-      
+      #therapy-video {
+        margin-top: 3em;
+      }
+
       /* mobile width queries*/
       @media screen and (max-width: 640px) { 
         .container {
@@ -144,12 +147,12 @@
         </div>
 
         <div class="col-lg-10 offset-lg-1">
-          <div class="video-container">
-            <video controls width="100%" style="background: lightgray; border: 1px solid lightgray; padding: 0; border-radius: 10px;">
-              <source src="https://www.dropbox.com/scl/fi/bxbcfzxn4n7btqoqfy52b/3-min-therapy-ru.mp4?rlkey=8wtu22f0hedr8tt89bd18vxei&raw=1" type="video/mp4" />
+          <!--div class="video-container"-->
+            <video id="therapy-video" controls width="100%" style="background: lightgray; border: 1px solid lightgray; padding: 0; border-radius: 10px;">
+              <source id="therapy-video-source" src="https://www.dropbox.com/scl/fi/bxbcfzxn4n7btqoqfy52b/3-min-therapy-ru.mp4?rlkey=8wtu22f0hedr8tt89bd18vxei&raw=1" type="video/mp4" />
             </video>
-          </div>
-          <p style="font-size-: 1em; color: darkgray; margin-bottom: 3em;">На данном видео показано, как ИИ психотерапевт начинает, ведет и заканчивает короткую 3-минутную демонстрационную сессию, в процессе которой его провоцируют дать жизненный совет.</p>
+          <!--/div-->
+          <p id="therapy-video-caption" style="font-size-: 1em; color: darkgray; margin-bottom: 3em;">На данном видео показано, как ИИ психотерапевт начинает, ведет и заканчивает короткую 3-минутную демонстрационную сессию, в процессе которой его провоцируют дать жизненный совет.</p>
         </div>
 
         <div class="col col-lg-6 offset-lg-3 col-sm-10 offset-sm-1 col-md-10 offset-md-1 col-10 offset-1">
@@ -168,4 +171,36 @@
       </div>
     </div>
   </body>
+  <script>
+    // Change video source to mobile version if in portrait mode
+    (function() {
+      var mobileSrc = "https://www.dropbox.com/scl/fi/n57njnj7fdjaw4h0jbsis/multilang-therapy.mp4?rlkey=aaawbb7xmaz3w00za88ccgg0m&e=1&raw=1"; // placeholder mobile video URL
+      var desktopSrc = "https://www.dropbox.com/scl/fi/bxbcfzxn4n7btqoqfy52b/3-min-therapy-ru.mp4?rlkey=8wtu22f0hedr8tt89bd18vxei&raw=1";
+      var video = document.getElementById('therapy-video');
+      var source = document.getElementById('therapy-video-source');
+      var caption = document.getElementById('therapy-video-caption');
+      var desktopCaption = "На данном видео показано, как ИИ психотерапевт начинает, ведет и заканчивает короткую 3-минутную демонстрационную сессию, в процессе которой его провоцируют дать жизненный совет.";
+      var mobileCaption = "На данном видео показано, как ИИ психотерапевт умеет общаться на разных языках.";
+      function updateVideoSource() {
+        if (window.innerHeight > window.innerWidth) {
+          console.log(1)
+          if (source.src !== mobileSrc) {
+            source.src = mobileSrc;
+            video.load();
+          }
+          if (caption) caption.textContent = mobileCaption;
+        } else {
+          console.log(2)
+          if (source.src !== desktopSrc) {
+            source.src = desktopSrc;
+            video.load();
+          }
+          if (caption) caption.textContent = desktopCaption;
+        }
+      }
+      //window.addEventListener('resize', updateVideoSource);
+      //window.addEventListener('orientationchange', updateVideoSource);
+      document.addEventListener('DOMContentLoaded', updateVideoSource);
+    })();
+  </script>
 </html>
